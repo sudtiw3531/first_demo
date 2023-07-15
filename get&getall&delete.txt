@@ -1,0 +1,71 @@
+Get all employees :
+
+select * from employee;
+
+repo.findAll() - List<Employee>
+
+===============================================
+Get by id :
+select * from employee where id = 1;
+
+pathvariable 
+
+http://localhost:8090/employee/get/{id} 
+
+ employeeRepository.getById() - Employee employee 
+ ===============================================
+ delete by id
+ 
+ delete from employee where id=1
+ 
+ http://localhost:8090/employee/delete/{id}
+ 
+ RecordNotFoundException - msg + response code (404) 
+ 
+ ===================================================
+ 
+ Save = 
+ 
+ @PostMapping("/save"); 
+ 
+ request body =  @RequestBody Employee employee
+ 
+ Employee createdEmployee =emprepo.save(employee) ;
+ 
+ 
+ =====================================================
+ 
+ GetAll :
+ 
+ @GetMapping("/getAll")
+ 
+ List<Employee> listOfEmployee = empRepo.findAll();
+ 
+ ===================================================
+ 
+ GetByid :
+ 
+ @GetMapping("/get/{id}")
+ Employee getEmployee(@PathVariable("id") int id){
+ 
+ 
+ }
+ 
+ 
+  Optional<Employee> emp=empRepo.findById(id);
+  
+  if(emp.isPresent()){
+       return emp.get(); //employee 
+	   }
+============================================
+delete by id :
+
+@DeleteMapping ("/delete/{id}")
+void deleteEmployee(@PathVariable("id") int id){
+
+}
+    
+	
+	empRepo.deleteById(id);
+	
+=================================================
